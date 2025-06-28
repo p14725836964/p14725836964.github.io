@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="manifest" href="manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+    <meta charset="UTF-8">
+    <title>新增交易</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>🧾 畫面二：新增交易</h2>
+            <form id="tradeForm">
+                <label>交易時間：<input type="datetime-local" id="time" required></label><br>
+                <label>商品：<input type="text" id="symbol" value="BTC/USDT"></label><br>
+                <label>操作方向：
+                    <input type="radio" name="direction" value="買進" checked>買進
+                    <input type="radio" name="direction" value="賣出">賣出
+                </label><br>
+                <label>進場價格：<input type="number" id="entry"></label><br>
+                <label>出場價格：<input type="number" id="exit"></label><br>
+                <label>損益金額：<input type="number" id="pl"></label><br>
+                <label>標籤：<br>
+                    <input type="checkbox" name="tags" value="策略成功">策略成功
+                    <input type="checkbox" name="tags" value="衝動進場">衝動進場
+                    <input type="checkbox" name="tags" value="策略失誤">策略失誤
+                    <input type="checkbox" name="tags" value="機械化交易">機械化交易
+                    <input type="checkbox" name="tags" value="新增">新增
+                </label><br>
+                <label>備註：<textarea id="note"></textarea></label><br>
+                <label>上傳截圖：<input type="file" accept="image/*"></label><br>
+                <button type="submit">儲存</button>
+                <button type="reset">取消</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
