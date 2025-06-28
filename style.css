@@ -1,6 +1,0 @@
-
-body { font-family: sans-serif; padding: 10px; background: #f8f8f8; }
-nav { background: #002244; padding: 10px; text-align: center; }
-nav button { margin: 5px; padding: 10px; color: white; background: #004488; border: none; border-radius: 5px; }
-.page { display: none; }
-.page.active { display: block; }
