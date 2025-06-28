@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交易日誌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <button onclick="switchPage('home')">交易日誌</button>
+    <button onclick="switchPage('new')">新增交易</button>
+    <button onclick="switchPage('report')">分析報告</button>
+  </nav>
+
+  <main>
+    <section id="home" class="page active">
+      <h2>📌 畫面一：交易日誌（首頁）</h2>
+      <div id="logList">尚無交易紀錄。</div>
+      <button onclick="switchPage('new')">➕ 新增交易</button>
+    </section>
+
+    <section id="new" class="page">
+      <h2>🧾 畫面二：新增交易</h2>
+      <label>交易時間：<input type="datetime-local" id="time" /></label><br/>
+      <label>交易標的：
+        <select id="symbol">
+          <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option>
+          <option>XRPUSDT</option><option>ADAUSDT</option><option>SUIUSDT</option>
+          <option>TONUSDT</option><option>FARTCOINUSDT</option><option>1000PEPEUSDT</option>
+        </select>
+      </label><br/>
+      <label><input type="radio" name="side" value="買進" checked /> 買進</label>
+      <label><input type="radio" name="side" value="賣出" /> 賣出</label><br/>
+      <label>進場價格：<input type="number" id="entry" /></label><br/>
+      <label>出場價格：<input type="number" id="exit" /></label><br/>
+      <label>損益金額：<input type="number" id="profit" /></label><br/>
+      <div>標籤（可複選）：
+        <label><input type="checkbox" value="策略成功" /> 策略成功</label>
+        <label><input type="checkbox" value="策略失敗" /> 策略失敗</label>
+        <label><input type="checkbox" value="中途加碼" /> 中途加碼</label>
+        <label><input type="checkbox" value="過早進場" /> 過早進場</label>
+        <label><input type="checkbox" value="過早出場" /> 過早出場</label>
+      </div>
+      <label>備註：<input type="text" id="note" /></label><br/>
+      <label>上傳圖片：<input type="file" id="image" accept="image/*" /></label><br/>
+      <button onclick="save()">💾 儲存</button>
+      <button onclick="switchPage('home')">🔙 返回</button>
+    </section>
+
+    <section id="report" class="page">
+      <h2>📊 畫面三：分析報告</h2>
+      <canvas id="trendChart" width="300" height="100"></canvas>
+      <canvas id="pieChart" width="300" height="100"></canvas>
+      <canvas id="barChart" width="300" height="100"></canvas>
+      <button onclick="switchPage('home')">🔙 返回首頁</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
