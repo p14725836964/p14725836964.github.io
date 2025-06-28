@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="manifest" href="manifest.json">
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+    <meta charset="UTF-8">
+    <title>交易日誌</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section id="journal-home">
+            <h2>📌 畫面一：交易日誌（首頁）</h2>
+            <div id="entries"></div>
+            <button onclick="location.href='new.html'">➕ 新增交易</button>
+        </section>
+    </main>
+</body>
+</html>
