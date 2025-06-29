@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>交易日誌</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>交易日誌</h1>
+    <nav>
+      <button onclick="changePage('home')">📌 首頁</button>
+      <button onclick="changePage('add')">📝 新增交易</button>
+      <button onclick="changePage('report')">📊 分析報告</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="homePage">
+      <h2>📌 畫面一：交易日誌（首頁）</h2>
+      <div id="journalList">尚無交易紀錄。</div>
+      <button onclick="changePage('add')">➕ 新增交易</button>
+    </section>
+
+    <section id="addPage" style="display: none;">
+      <h2>🧾 畫面二：新增交易</h2>
+      <form id="tradeForm">
+        <label>交易時間：<input type="datetime-local" id="tradeTime"></label><br>
+        <label>交易標的：
+          <select id="symbol">
+            <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option>
+            <option>XRPUSDT</option><option>ADAUSDT</option><option>SUIUSDT</option>
+            <option>TONUSDT</option><option>FARTCOINUSDT</option><option>1000PEPEUSDT</option>
+          </select>
+        </label><br>
+        <label><input type="radio" name="direction" value="買進" checked> 買進</label>
+        <label><input type="radio" name="direction" value="賣出"> 賣出</label><br>
+        <label>進場價格：<input type="number" id="entryPrice"></label><br>
+        <label>出場價格：<input type="number" id="exitPrice"></label><br>
+        <label>損益金額：<input type="number" id="profitLoss"></label><br>
+
+        <label>標籤（可複選）：</label><br>
+        <label><input type="checkbox" value="策略成功"> 策略成功</label>
+        <label><input type="checkbox" value="策略失敗"> 策略失敗</label>
+        <label><input type="checkbox" value="中途加碼"> 中途加碼</label>
+        <label><input type="checkbox" value="過早進場"> 過早進場</label>
+        <label><input type="checkbox" value="過早出場"> 過早出場</label><br>
+
+        <label>情緒（可複選）：</label><br>
+        <label><input type="checkbox" value="貪婪"> 貪婪</label>
+        <label><input type="checkbox" value="恐懼"> 恐懼</label>
+        <label><input type="checkbox" value="焦慮"> 焦慮</label>
+        <label><input type="checkbox" value="冷靜"> 冷靜</label><br>
+
+        <label>截圖圖片：<input type="file" id="screenshot" accept="image/*"></label><br>
+        <button type="submit">儲存交易</button>
+      </form>
+    </section>
+
+    <section id="reportPage" style="display: none;">
+      <h2>📊 畫面三：分析報告</h2>
+      <canvas id="profitChart"></canvas>
+      <div id="gallery"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
